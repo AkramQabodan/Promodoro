@@ -57,14 +57,12 @@ const display_time = (element, sec = 0, min = 0, hour = 0) => {
 };
 
 start_work.addEventListener("click", () => {
-  console.log("start button");
   if (!is_Started) {
     work_stop = timer(work_time, "work");
     is_Started = true;
   }
 });
 start_break.addEventListener("click", () => {
-  console.log("break");
   if (is_Started) {
     if (!break_started) {
       clearInterval(work_stop);
@@ -74,7 +72,6 @@ start_break.addEventListener("click", () => {
   }
 });
 resume_work.addEventListener("click", () => {
-  console.log("resume");
   if (break_started) {
     work_stop = timer(work_time, "work");
     clearInterval(break_stop);
@@ -82,7 +79,6 @@ resume_work.addEventListener("click", () => {
   }
 });
 end_work.addEventListener("click", () => {
-  console.log("end");
   clearInterval(work_stop);
   clearInterval(break_stop);
   display_time(work_time, 0, 0, 0);
